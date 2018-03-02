@@ -1,4 +1,4 @@
-# $FreeBSD: head/mail/rspamd-devel/Makefile 437131 2017-03-28 15:11:58Z vsevolod $
+# $FreeBSD: head/mail/rspamd-devel/Makefile 463411 2018-03-02 15:46:07Z vsevolod $
 
 PORTNAME=	rspamd
 PORTVERSION=	1.7.0.a1.20180302
@@ -23,7 +23,7 @@ CONFLICTS_INSTALL=	rspamd
 RSPAMD_VERSION=	1.7.0
 USE_GITHUB=	yes
 GH_ACCOUNT=	vstakhov
-GH_TAGNAME=	0d89c44
+GH_TAGNAME=	b47a5b367
 
 OPTIONS_DEFINE=		GPERF GD CGP TORCH
 OPTIONS_DEFINE_amd64=	HYPERSCAN
@@ -96,6 +96,9 @@ WITH_DEBUG=	yes
 
 .if ! ${PORT_OPTIONS:MTORCH}
  CMAKE_ARGS+=	-DENABLE_TORCH=OFF
+.else
+ LIB_DEPENDS+=	libopenblas.so:math/openblas
+ USE_GCC=	yes
 .endif
 
 post-install:
