@@ -23,7 +23,7 @@ CONFLICTS_INSTALL=	rspamd
 RSPAMD_VERSION=	1.7.0
 USE_GITHUB=	yes
 GH_ACCOUNT=	vstakhov
-GH_TAGNAME=	ebf5a88
+GH_TAGNAME=	0d89c44
 
 OPTIONS_DEFINE=		GPERF GD CGP TORCH
 OPTIONS_DEFINE_amd64=	HYPERSCAN
@@ -34,6 +34,8 @@ GD_DESC=		Enable libgd support for images fuzzy hashes
 GPERF_DESC=		Google perf-tools profiling
 HYPERSCAN_DESC=		Use hyperscan optimizations (amd64 only)
 TORCH_DESC=		Build with embedded Torch7
+
+OPTIONS_DEFAULT=	TORCH
 
 USE_RC_SUBR=	rspamd
 
