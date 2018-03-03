@@ -21,9 +21,6 @@ BUILD_DEPENDS=	ragel:devel/ragel
 CONFLICTS_INSTALL=	rspamd
 
 RSPAMD_VERSION=	1.7.0
-USE_GITHUB=	yes
-GH_ACCOUNT=	vstakhov
-GH_TAGNAME=	0fed6e67d
 
 OPTIONS_DEFINE=		GPERF GD CGP TORCH
 OPTIONS_DEFINE_amd64=	HYPERSCAN
@@ -36,8 +33,6 @@ HYPERSCAN_DESC=		Use hyperscan optimizations (amd64 only)
 TORCH_DESC=		Build with embedded Torch7
 
 OPTIONS_DEFAULT=	TORCH
-
-USE_RC_SUBR=	rspamd
 
 SUB_FILES=	pkg-message rspamd.newsyslog.conf.sample
 PLIST_SUB+=	ETCDIR=etc/rspamd \
@@ -59,8 +54,14 @@ USES=		cmake:outsource pkgconfig perl5 \
 		compiler:c11 sqlite ssl
 USE_LDCONFIG=	yes
 USE_PERL5=	build run
+USE_RC_SUBR=	rspamd
 
 USE_GNOME=	glib20
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	vstakhov
+GH_TAGNAME=	0fed6e67d
+
 DEBUG_FLAGS=	-g -O0
 WITH_DEBUG=	yes
 
