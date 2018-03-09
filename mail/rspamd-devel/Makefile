@@ -1,7 +1,7 @@
 # $FreeBSD: head/mail/rspamd-devel/Makefile 463445 2018-03-02 19:21:53Z vsevolod $
 
 PORTNAME=	rspamd
-PORTVERSION=	1.7.0.a2.20180308
+PORTVERSION=	1.7.0.a2.20180309
 CATEGORIES=	mail
 PKGNAMESUFFIX=	-devel
 
@@ -14,7 +14,6 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 LIB_DEPENDS=	libpcre.so:devel/pcre \
 		libevent.so:devel/libevent \
 		libluajit-5.1.so:lang/luajit \
-		libfann.so:math/fann \
 		libicui18n.so:devel/icu
 BUILD_DEPENDS=	ragel:devel/ragel
 
@@ -22,11 +21,12 @@ CONFLICTS_INSTALL=	rspamd
 
 RSPAMD_VERSION=	1.7.0
 
-OPTIONS_DEFINE=		GPERF GD CGP TORCH
+OPTIONS_DEFINE=		CGP FANN GD GPERF TORCH
 OPTIONS_DEFINE_amd64=	HYPERSCAN
 OPTIONS_SUB=	yes
 
 CGP_DESC=		Install Communigate Pro(tm) helper
+FANN_DESC=		Enable FANN for neural network plugin
 GD_DESC=		Enable libgd support for images fuzzy hashes
 GPERF_DESC=		Google perf-tools profiling
 HYPERSCAN_DESC=		Use hyperscan optimizations (amd64 only)
@@ -47,8 +47,7 @@ CMAKE_ARGS+=	-DCONFDIR=${PREFIX}/etc/rspamd \
 		-DLIBDIR=${PREFIX}/lib/rspamd \
 		-DNO_SHARED=ON \
 		-DDEBUG=ON \
-		-DGIT_ID=${GH_TAGNAME} \
-		-DENABLE_FANN=ON
+		-DGIT_ID=${GH_TAGNAME}
 
 USES=		cmake:outsource pkgconfig perl5 \
 		compiler:c11 sqlite ssl
@@ -60,7 +59,7 @@ USE_GNOME=	glib20
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	vstakhov
-GH_TAGNAME=	460323a
+GH_TAGNAME=	39a38ff
 
 DEBUG_FLAGS=	-g -O0
 WITH_DEBUG=	yes
@@ -93,6 +92,11 @@ WITH_DEBUG=	yes
 	p5-JSON-XS>=0:converters/p5-JSON-XS
 .else
  PLIST_SUB+=	CGP="@comment "
+.endif
+
+.if ${PORT_OPTIONS:MFANN}
+ CMAKE_ARGS+=	-DENABLE_FANN=ON
+ LIB_DEPENDS+=	libfann.so:math/fann
 .endif
 
 .if ! ${PORT_OPTIONS:MTORCH}
