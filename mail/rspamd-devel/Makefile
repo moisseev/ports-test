@@ -16,6 +16,7 @@ LIB_DEPENDS=	libpcre.so:devel/pcre \
 		libluajit-5.1.so:lang/luajit \
 		libicui18n.so:devel/icu
 BUILD_DEPENDS=	ragel:devel/ragel
+RUN_DEPENDS=	ca_root_nss>=3.*:security/ca_root_nss
 
 CONFLICTS_INSTALL=	rspamd
 
