@@ -1,14 +1,14 @@
-bin/rspamd-%%RSPAMDVERSION%%
-bin/rspamd
-bin/rspamd_stats
-bin/rspamadm-%%RSPAMDVERSION%%
 bin/rspamadm
-bin/rspamc-%%RSPAMDVERSION%%
+bin/rspamadm-%%RSPAMDVERSION%%
 bin/rspamc
+bin/rspamc-%%RSPAMDVERSION%%
+bin/rspamd
+bin/rspamd-%%RSPAMDVERSION%%
+bin/rspamd_stats
 %%CGP%%bin/rspamd-cgp-helper
+etc/newsyslog.conf.d/rspamd.newsyslog.conf
 @sample %%ETCDIR%%/2tld.inc.sample
 @sample %%ETCDIR%%/actions.conf.sample
-@sample %%ETCDIR%%/mime_types.inc.sample
 @sample %%ETCDIR%%/common.conf.sample
 @sample %%ETCDIR%%/composites.conf.sample
 @sample %%ETCDIR%%/dmarc_whitelist.inc.sample
@@ -17,6 +17,7 @@ bin/rspamc
 @sample %%ETCDIR%%/maillist.inc.sample
 @sample %%ETCDIR%%/metrics.conf.sample
 @sample %%ETCDIR%%/mid.inc.sample
+@sample %%ETCDIR%%/mime_types.inc.sample
 @sample %%ETCDIR%%/modules.conf.sample
 %%ETCDIR%%/modules.d/antivirus.conf
 %%ETCDIR%%/modules.d/arc.conf
@@ -39,8 +40,9 @@ bin/rspamc
 %%ETCDIR%%/modules.d/maillist.conf
 %%ETCDIR%%/modules.d/metadata_exporter.conf
 %%ETCDIR%%/modules.d/metric_exporter.conf
-%%ETCDIR%%/modules.d/mime_types.conf
 %%ETCDIR%%/modules.d/mid.conf
+%%ETCDIR%%/modules.d/milter_headers.conf
+%%ETCDIR%%/modules.d/mime_types.conf
 %%ETCDIR%%/modules.d/multimap.conf
 %%ETCDIR%%/modules.d/mx_check.conf
 %%ETCDIR%%/modules.d/neural.conf
@@ -51,7 +53,6 @@ bin/rspamc
 %%ETCDIR%%/modules.d/redis.conf
 %%ETCDIR%%/modules.d/regexp.conf
 %%ETCDIR%%/modules.d/replies.conf
-%%ETCDIR%%/modules.d/milter_headers.conf
 %%ETCDIR%%/modules.d/rspamd_update.conf
 %%ETCDIR%%/modules.d/spamassassin.conf
 %%ETCDIR%%/modules.d/spamtrap.conf
@@ -65,6 +66,7 @@ bin/rspamc
 @sample %%ETCDIR%%/options.inc.sample
 %%ETCDIR%%/redirectors.inc
 @sample %%ETCDIR%%/rspamd.conf.sample
+@sample %%ETCDIR%%/rspamd.newsyslog.conf.sample
 %%ETCDIR%%/scores.d/fuzzy_group.conf
 %%ETCDIR%%/scores.d/headers_group.conf
 %%ETCDIR%%/scores.d/hfilter_group.conf
@@ -83,9 +85,16 @@ bin/rspamc
 @sample %%ETCDIR%%/worker-fuzzy.inc.sample
 @sample %%ETCDIR%%/worker-normal.inc.sample
 @sample %%ETCDIR%%/worker-proxy.inc.sample
-@sample %%ETCDIR%%/rspamd.newsyslog.conf.sample
-etc/newsyslog.conf.d/rspamd.newsyslog.conf
 lib/rspamd/librspamd-actrie.so
+%%TORCH%%lib/rspamd/libTH.so
+%%TORCH%%lib/rspamd/libTHNN.so
+%%TORCH%%lib/rspamd/libdecisiontree.so
+%%TORCH%%lib/rspamd/libpaths.so
+%%TORCH%%lib/rspamd/libtorch.so
+man/man1/rspamadm.1.gz
+man/man1/rspamc.1.gz
+man/man8/rspamd.8.gz
+%%DATADIR%%/effective_tld_names.dat
 %%DATADIR%%/elastic/kibana.json
 %%DATADIR%%/elastic/rspamd_template.json
 %%DATADIR%%/languages/af.json
@@ -148,7 +157,6 @@ lib/rspamd/librspamd-actrie.so
 %%DATADIR%%/languages/vi.json
 %%DATADIR%%/languages/yi.json
 %%DATADIR%%/languages/zh-CN.json
-%%DATADIR%%/effective_tld_names.dat
 %%DATADIR%%/lib/fun.lua
 %%DATADIR%%/lib/global_functions.lua
 %%DATADIR%%/lib/lua_auth_results.lua
@@ -173,99 +181,6 @@ lib/rspamd/librspamd-actrie.so
 %%DATADIR%%/lib/rspamadm/rescore.lua
 %%DATADIR%%/lib/rspamadm/rescore_utility.lua
 %%DATADIR%%/lib/rspamadm/stat_convert.lua
-%%DATADIR%%/lua/antivirus.lua
-%%DATADIR%%/lua/arc.lua
-%%DATADIR%%/lua/asn.lua
-%%DATADIR%%/lua/bayes_expiry.lua
-%%DATADIR%%/lua/clickhouse.lua
-%%DATADIR%%/lua/dcc.lua
-%%DATADIR%%/lua/dkim_signing.lua
-%%DATADIR%%/lua/dmarc.lua
-%%DATADIR%%/lua/dynamic_conf.lua
-%%DATADIR%%/lua/elastic.lua
-%%DATADIR%%/lua/emails.lua
-%%DATADIR%%/lua/force_actions.lua
-%%DATADIR%%/lua/forged_recipients.lua
-%%DATADIR%%/lua/fuzzy_collect.lua
-%%DATADIR%%/lua/greylist.lua
-%%DATADIR%%/lua/hfilter.lua
-%%DATADIR%%/lua/history_redis.lua
-%%DATADIR%%/lua/ip_score.lua
-%%DATADIR%%/lua/maillist.lua
-%%DATADIR%%/lua/metadata_exporter.lua
-%%DATADIR%%/lua/metric_exporter.lua
-%%DATADIR%%/lua/mid.lua
-%%DATADIR%%/lua/mime_types.lua
-%%DATADIR%%/lua/multimap.lua
-%%DATADIR%%/lua/mx_check.lua
-%%DATADIR%%/lua/neural.lua
-%%DATADIR%%/lua/once_received.lua
-%%DATADIR%%/lua/phishing.lua
-%%DATADIR%%/lua/ratelimit.lua
-%%DATADIR%%/lua/reputation.lua
-%%DATADIR%%/lua/url_redirector.lua
-%%DATADIR%%/lua/url_tags.lua
-%%DATADIR%%/lua/replies.lua
-%%DATADIR%%/lua/rbl.lua
-%%DATADIR%%/lua/milter_headers.lua
-%%DATADIR%%/lua/rspamd_update.lua
-%%DATADIR%%/lua/settings.lua
-%%DATADIR%%/lua/spamassassin.lua
-%%DATADIR%%/lua/spamtrap.lua
-%%DATADIR%%/lua/trie.lua
-%%DATADIR%%/lua/url_reputation.lua
-%%DATADIR%%/lua/whitelist.lua
-%%DATADIR%%/rules/forwarding.lua
-%%DATADIR%%/rules/headers_checks.lua
-%%DATADIR%%/rules/html.lua
-%%DATADIR%%/rules/http_headers.lua
-%%DATADIR%%/rules/mid.lua
-%%DATADIR%%/rules/misc.lua
-%%DATADIR%%/rules/regexp/compromised_hosts.lua
-%%DATADIR%%/rules/regexp/headers.lua
-%%DATADIR%%/rules/regexp/misc.lua
-%%DATADIR%%/rules/regexp/upstream_spam_filters.lua
-%%DATADIR%%/rules/rspamd.classifiers.lua
-%%DATADIR%%/rules/rspamd.lua
-%%DATADIR%%/rules/subject_checks.lua
-%%DATADIR%%/www/README.md
-%%DATADIR%%/www/css/bootstrap.min.css
-%%DATADIR%%/www/css/d3evolution.css
-%%DATADIR%%/www/css/footable.bootstrap.min.css
-%%DATADIR%%/www/css/rspamd.css
-%%DATADIR%%/www/favicon.ico
-%%DATADIR%%/www/fonts/glyphicons-halflings-regular.ttf
-%%DATADIR%%/www/fonts/glyphicons-halflings-regular.woff
-%%DATADIR%%/www/fonts/glyphicons-halflings-regular.woff2
-%%DATADIR%%/www/img/asc.png
-%%DATADIR%%/www/img/desc.png
-%%DATADIR%%/www/img/rspamd_logo_navbar.png
-%%DATADIR%%/www/index.html
-%%DATADIR%%/www/js/app/config.js
-%%DATADIR%%/www/js/app/graph.js
-%%DATADIR%%/www/js/app/history.js
-%%DATADIR%%/www/js/app/rspamd.js
-%%DATADIR%%/www/js/app/stats.js
-%%DATADIR%%/www/js/app/symbols.js
-%%DATADIR%%/www/js/app/upload.js
-%%DATADIR%%/www/js/lib/bootstrap.min.js
-%%DATADIR%%/www/js/lib/d3.min.js
-%%DATADIR%%/www/js/lib/d3evolution.min.js
-%%DATADIR%%/www/js/lib/d3pie.min.js
-%%DATADIR%%/www/js/lib/domReady.js
-%%DATADIR%%/www/js/lib/footable.min.js
-%%DATADIR%%/www/js/lib/humanize.min.js
-%%DATADIR%%/www/js/lib/jquery-3.2.1.min.js
-%%DATADIR%%/www/js/lib/visibility.min.js
-%%DATADIR%%/www/js/main.js
-%%DATADIR%%/www/js/require.js
-%%DATADIR%%/www/plugins.txt
-%%DATADIR%%/www/react-index.html
-%%TORCH%%lib/rspamd/libdecisiontree.so
-%%TORCH%%lib/rspamd/libTH.so
-%%TORCH%%lib/rspamd/libTHNN.so
-%%TORCH%%lib/rspamd/libpaths.so
-%%TORCH%%lib/rspamd/libtorch.so
 %%TORCH%%%%DATADIR%%/lib/decisiontree/CartNode.lua
 %%TORCH%%%%DATADIR%%/lib/decisiontree/CartTrainer.lua
 %%TORCH%%%%DATADIR%%/lib/decisiontree/CartTree.lua
@@ -518,10 +433,94 @@ lib/rspamd/librspamd-actrie.so
 %%TORCH%%%%DATADIR%%/lib/torch/init.lua
 %%TORCH%%%%DATADIR%%/lib/torch/paths.lua
 %%TORCH%%%%DATADIR%%/lib/torch/test.lua
-man/man1/rspamadm.1.gz
-man/man1/rspamc.1.gz
-man/man8/rspamd.8.gz
-@dir %%EXAMPLESDIR%%
+%%DATADIR%%/lua/antivirus.lua
+%%DATADIR%%/lua/arc.lua
+%%DATADIR%%/lua/asn.lua
+%%DATADIR%%/lua/bayes_expiry.lua
+%%DATADIR%%/lua/clickhouse.lua
+%%DATADIR%%/lua/dcc.lua
+%%DATADIR%%/lua/dkim_signing.lua
+%%DATADIR%%/lua/dmarc.lua
+%%DATADIR%%/lua/dynamic_conf.lua
+%%DATADIR%%/lua/elastic.lua
+%%DATADIR%%/lua/emails.lua
+%%DATADIR%%/lua/force_actions.lua
+%%DATADIR%%/lua/forged_recipients.lua
+%%DATADIR%%/lua/fuzzy_collect.lua
+%%DATADIR%%/lua/greylist.lua
+%%DATADIR%%/lua/hfilter.lua
+%%DATADIR%%/lua/history_redis.lua
+%%DATADIR%%/lua/ip_score.lua
+%%DATADIR%%/lua/maillist.lua
+%%DATADIR%%/lua/metadata_exporter.lua
+%%DATADIR%%/lua/metric_exporter.lua
+%%DATADIR%%/lua/mid.lua
+%%DATADIR%%/lua/milter_headers.lua
+%%DATADIR%%/lua/mime_types.lua
+%%DATADIR%%/lua/multimap.lua
+%%DATADIR%%/lua/mx_check.lua
+%%DATADIR%%/lua/neural.lua
+%%DATADIR%%/lua/once_received.lua
+%%DATADIR%%/lua/phishing.lua
+%%DATADIR%%/lua/ratelimit.lua
+%%DATADIR%%/lua/rbl.lua
+%%DATADIR%%/lua/replies.lua
+%%DATADIR%%/lua/reputation.lua
+%%DATADIR%%/lua/rspamd_update.lua
+%%DATADIR%%/lua/settings.lua
+%%DATADIR%%/lua/spamassassin.lua
+%%DATADIR%%/lua/spamtrap.lua
+%%DATADIR%%/lua/trie.lua
+%%DATADIR%%/lua/url_redirector.lua
+%%DATADIR%%/lua/url_reputation.lua
+%%DATADIR%%/lua/url_tags.lua
+%%DATADIR%%/lua/whitelist.lua
+%%DATADIR%%/rules/forwarding.lua
+%%DATADIR%%/rules/headers_checks.lua
+%%DATADIR%%/rules/html.lua
+%%DATADIR%%/rules/http_headers.lua
+%%DATADIR%%/rules/mid.lua
+%%DATADIR%%/rules/misc.lua
+%%DATADIR%%/rules/regexp/compromised_hosts.lua
+%%DATADIR%%/rules/regexp/headers.lua
+%%DATADIR%%/rules/regexp/misc.lua
+%%DATADIR%%/rules/regexp/upstream_spam_filters.lua
+%%DATADIR%%/rules/rspamd.classifiers.lua
+%%DATADIR%%/rules/rspamd.lua
+%%DATADIR%%/rules/subject_checks.lua
+%%DATADIR%%/www/README.md
+%%DATADIR%%/www/css/bootstrap.min.css
+%%DATADIR%%/www/css/d3evolution.css
+%%DATADIR%%/www/css/footable.bootstrap.min.css
+%%DATADIR%%/www/css/rspamd.css
+%%DATADIR%%/www/favicon.ico
+%%DATADIR%%/www/fonts/glyphicons-halflings-regular.ttf
+%%DATADIR%%/www/fonts/glyphicons-halflings-regular.woff
+%%DATADIR%%/www/fonts/glyphicons-halflings-regular.woff2
+%%DATADIR%%/www/img/asc.png
+%%DATADIR%%/www/img/desc.png
+%%DATADIR%%/www/img/rspamd_logo_navbar.png
+%%DATADIR%%/www/index.html
+%%DATADIR%%/www/js/app/config.js
+%%DATADIR%%/www/js/app/graph.js
+%%DATADIR%%/www/js/app/history.js
+%%DATADIR%%/www/js/app/rspamd.js
+%%DATADIR%%/www/js/app/stats.js
+%%DATADIR%%/www/js/app/symbols.js
+%%DATADIR%%/www/js/app/upload.js
+%%DATADIR%%/www/js/lib/bootstrap.min.js
+%%DATADIR%%/www/js/lib/d3.min.js
+%%DATADIR%%/www/js/lib/d3evolution.min.js
+%%DATADIR%%/www/js/lib/d3pie.min.js
+%%DATADIR%%/www/js/lib/domReady.js
+%%DATADIR%%/www/js/lib/footable.min.js
+%%DATADIR%%/www/js/lib/humanize.min.js
+%%DATADIR%%/www/js/lib/jquery-3.2.1.min.js
+%%DATADIR%%/www/js/lib/visibility.min.js
+%%DATADIR%%/www/js/main.js
+%%DATADIR%%/www/js/require.js
+%%DATADIR%%/www/plugins.txt
+%%DATADIR%%/www/react-index.html
 @owner nobody
 @group nobody
 @dir /var/db/rspamd

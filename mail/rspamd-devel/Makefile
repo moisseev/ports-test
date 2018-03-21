@@ -1,7 +1,7 @@
 # $FreeBSD: head/mail/rspamd-devel/Makefile 464084 2018-03-10 17:46:04Z gerald $
 
 PORTNAME=	rspamd
-PORTVERSION=	1.7.2.a1.20180320
+PORTVERSION=	1.7.2.a1.20180321
 CATEGORIES=	mail
 PKGNAMESUFFIX=	-devel
 
@@ -27,11 +27,11 @@ OPTIONS_DEFINE_amd64=	HYPERSCAN
 OPTIONS_SUB=	yes
 
 CGP_DESC=		Install Communigate Pro(tm) helper
-FANN_DESC=		Enable FANN for neural network plugin
 GD_DESC=		Enable libgd support for images fuzzy hashes
 GPERF_DESC=		Google perf-tools profiling
 HYPERSCAN_DESC=		Use hyperscan optimizations (amd64 only)
-TORCH_DESC=		Build with embedded Torch7
+FANN_DESC=		Use Fast Artificial Neural Network Library (FANN)
+TORCH_DESC=		Machine learning support using torch
 
 OPTIONS_DEFAULT=	TORCH
 
@@ -54,51 +54,37 @@ USES=		cmake:outsource pkgconfig perl5 \
 		compiler:c11 sqlite ssl
 USE_LDCONFIG=	yes
 USE_PERL5=	build run
-USE_RC_SUBR=	rspamd
 
 USE_GNOME=	glib20
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	vstakhov
-GH_TAGNAME=	904d1d9
+GH_TAGNAME=	9e1bcc1
 
 DEBUG_FLAGS=	-g -O0
 WITH_DEBUG=	yes
 
+USE_RC_SUBR=	rspamd
+
+GD_CMAKE_ON=	-DENABLE_GD=ON
+GD_LIB_DEPENDS=	libgd.so:graphics/gd
+
+GPERF_CMAKE_ON=	-DENABLE_GPERF_TOOLS=ON
+GPERF_LIB_DEPENDS=	libprofiler.so:devel/google-perftools
+
+HYPERSCAN_CMAKE_ON=	-DENABLE_HYPERSCAN=ON
+HYPERSCAN_LIB_DEPENDS=	libhs.so:devel/hyperscan
+
+FANN_CMAKE_ON=	-DENABLE_FANN=ON
+FANN_LIB_DEPENDS=	libfann.so:math/fann
+
 .include <bsd.port.options.mk>
 
-.if ${PORT_OPTIONS:MGD}
- CMAKE_ARGS+=	-DENABLE_GD=ON
- LIB_DEPENDS+=	libgd.so:graphics/gd
-.else
- CMAKE_ARGS+=	-DENABLE_GD=OFF
-.endif
-
-.if ${PORT_OPTIONS:MGPERF}
- CMAKE_ARGS+=	-DENABLE_GPERF_TOOLS=ON
- LIB_DEPENDS+=	libprofiler.so:devel/google-perftools
-.endif
-
-.if ${PORT_OPTIONS:MHYPERSCAN}
- CMAKE_ARGS+=		-DENABLE_HYPERSCAN=ON
- LIB_DEPENDS+=		libhs.so:devel/hyperscan
-.endif
-
-.if ${PORT_OPTIONS:MCGP}
- PLIST_SUB+=	CGP=""
- RUN_DEPENDS+=	\
+CGP_RUN_DEPENDS+=	\
 	p5-AnyEvent-HTTP>=0:www/p5-AnyEvent-HTTP \
 	p5-AnyEvent>=0:devel/p5-AnyEvent \
 	p5-EV>=0:devel/p5-EV \
 	p5-JSON-XS>=0:converters/p5-JSON-XS
-.else
- PLIST_SUB+=	CGP="@comment "
-.endif
-
-.if ${PORT_OPTIONS:MFANN}
- CMAKE_ARGS+=	-DENABLE_FANN=ON
- LIB_DEPENDS+=	libfann.so:math/fann
-.endif
 
 .if ! ${PORT_OPTIONS:MTORCH}
  CMAKE_ARGS+=	-DENABLE_TORCH=OFF
@@ -116,11 +102,12 @@ post-install:
 	${RM} ${STAGEDIR}/${ETCDIR}/rspamd.systemd.conf
 	# No need, since rspamd.conf.sample is a same
 	${RM} ${STAGEDIR}/${ETCDIR}/rspamd.sysvinit.conf
+	# No examples installed by the port
+	${RMDIR} ${STAGEDIR}/${EXAMPLESDIR}
 	${INSTALL_DATA} ${WRKDIR}/rspamd.newsyslog.conf.sample ${STAGEDIR}${ETCDIR}
 	@${MKDIR} ${STAGEDIR}${PREFIX}/etc/newsyslog.conf.d
 	${LN} -s ${ETCDIR}/rspamd.newsyslog.conf ${STAGEDIR}${PREFIX}/etc/newsyslog.conf.d
-.if ${PORT_OPTIONS:MCGP}
+post-install-CGP-on:
 	${INSTALL_SCRIPT} ${WRKSRC}/utils/cgp_rspamd.pl ${STAGEDIR}${PREFIX}/bin/rspamd-cgp-helper
-.endif
 
 .include <bsd.port.mk>
