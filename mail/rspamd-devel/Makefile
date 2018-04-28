@@ -1,7 +1,7 @@
 # $FreeBSD: head/mail/rspamd-devel/Makefile 464084 2018-03-10 17:46:04Z gerald $
 
 PORTNAME=	rspamd
-PORTVERSION=	1.7.4.a1.20180424
+PORTVERSION=	1.7.4.a1.20180426
 CATEGORIES=	mail
 PKGNAMESUFFIX=	-devel
 
@@ -61,7 +61,7 @@ USE_GNOME=	glib20
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	vstakhov
-GH_TAGNAME=	c286876
+GH_TAGNAME=	ca2d209
 
 DEBUG_FLAGS=	-g -O0
 WITH_DEBUG=	yes
