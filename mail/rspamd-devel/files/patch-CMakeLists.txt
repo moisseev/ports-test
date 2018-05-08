@@ -1,10 +1,11 @@
 --- CMakeLists.txt.orig	2017-06-06 15:07:59 UTC
 +++ CMakeLists.txt
-@@ -1302,6 +1302,26 @@ ELSE(WANT_SYSTEMD_UNITS MATCHES "ON")
+@@ -1302,6 +1302,27 @@ ELSE(WANT_SYSTEMD_UNITS MATCHES "ON")
  ENDIF(WANT_SYSTEMD_UNITS MATCHES "ON")
  IF(BUILD_PORT)
  	INSTALL_IF_NOT_EXISTS(${MAIN_CONF} ${CONFDIR} "rspamd.conf" ".sample")
 +	INSTALL_IF_NOT_EXISTS("conf/actions.conf" ${CONFDIR} "actions.conf" ".sample")
++	INSTALL_IF_NOT_EXISTS("conf/cgp.inc" ${CONFDIR} "cgp.inc" ".sample")
 +	INSTALL_IF_NOT_EXISTS("conf/common.conf" ${CONFDIR} "common.conf" ".sample")
 +	INSTALL_IF_NOT_EXISTS("conf/groups.conf" ${CONFDIR} "groups.conf" ".sample")
 +	INSTALL_IF_NOT_EXISTS("conf/logging.inc" ${CONFDIR} "logging.inc" ".sample")
