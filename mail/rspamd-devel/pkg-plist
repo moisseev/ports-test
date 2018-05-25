@@ -158,6 +158,7 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/languages/vi.json
 %%DATADIR%%/languages/yi.json
 %%DATADIR%%/languages/zh-CN.json
+%%DATADIR%%/lib/argparse.lua
 %%DATADIR%%/lib/fun.lua
 %%DATADIR%%/lib/global_functions.lua
 %%DATADIR%%/lib/lua_auth_results.lua
