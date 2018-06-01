@@ -161,7 +161,6 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/lib/ansicolors.lua
 %%DATADIR%%/lib/argparse.lua
 %%DATADIR%%/lib/fun.lua
-%%DATADIR%%/lib/getopt.lua
 %%DATADIR%%/lib/global_functions.lua
 %%DATADIR%%/lib/lua_auth_results.lua
 %%DATADIR%%/lib/lua_cfg_transform.lua
