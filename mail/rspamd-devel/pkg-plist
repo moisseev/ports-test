@@ -109,7 +109,6 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/languages/cy.json
 %%DATADIR%%/languages/da.json
 %%DATADIR%%/languages/de.json
-%%DATADIR%%/languages/el.json
 %%DATADIR%%/languages/en.json
 %%DATADIR%%/languages/es.json
 %%DATADIR%%/languages/et.json
@@ -118,8 +117,6 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/languages/fi.json
 %%DATADIR%%/languages/fr.json
 %%DATADIR%%/languages/ga.json
-%%DATADIR%%/languages/gl.json
-%%DATADIR%%/languages/gu.json
 %%DATADIR%%/languages/he.json
 %%DATADIR%%/languages/hi.json
 %%DATADIR%%/languages/hr.json
@@ -128,12 +125,9 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/languages/is.json
 %%DATADIR%%/languages/it.json
 %%DATADIR%%/languages/ja.json
-%%DATADIR%%/languages/km.json
-%%DATADIR%%/languages/kn.json
 %%DATADIR%%/languages/ko.json
 %%DATADIR%%/languages/lt.json
 %%DATADIR%%/languages/lv.json
-%%DATADIR%%/languages/ml.json
 %%DATADIR%%/languages/mr.json
 %%DATADIR%%/languages/ms.json
 %%DATADIR%%/languages/ne.json
@@ -150,9 +144,6 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/languages/sr.json
 %%DATADIR%%/languages/sv.json
 %%DATADIR%%/languages/sw.json
-%%DATADIR%%/languages/ta.json
-%%DATADIR%%/languages/te.json
-%%DATADIR%%/languages/th.json
 %%DATADIR%%/languages/tr.json
 %%DATADIR%%/languages/uk.json
 %%DATADIR%%/languages/ur.json
