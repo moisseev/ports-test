@@ -490,6 +490,7 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/www/css/bootstrap.min.css
 %%DATADIR%%/www/css/d3evolution.css
 %%DATADIR%%/www/css/footable.bootstrap.min.css
+%%DATADIR%%/www/css/nprogress.css
 %%DATADIR%%/www/css/rspamd.css
 %%DATADIR%%/www/favicon.ico
 %%DATADIR%%/www/fonts/glyphicons-halflings-regular.ttf
@@ -514,6 +515,7 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/www/js/lib/footable.min.js
 %%DATADIR%%/www/js/lib/humanize.min.js
 %%DATADIR%%/www/js/lib/jquery-3.3.1.min.js
+%%DATADIR%%/www/js/lib/nprogress.min.js
 %%DATADIR%%/www/js/lib/visibility.min.js
 %%DATADIR%%/www/js/main.js
 %%DATADIR%%/www/js/lib/require.min.js
