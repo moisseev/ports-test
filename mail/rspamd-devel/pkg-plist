@@ -165,6 +165,7 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/lib/lua_selectors.lua
 %%DATADIR%%/lib/lua_squeeze_rules.lua
 %%DATADIR%%/lib/lua_stat.lua
+%%DATADIR%%/lib/lua_tcp_sync.lua
 %%DATADIR%%/lib/lua_util.lua
 %%DATADIR%%/lib/plugins_stats.lua
 %%DATADIR%%/lib/rescore_utility.lua
