@@ -80,6 +80,7 @@ etc/newsyslog.conf.d/rspamd.newsyslog.conf
 %%ETCDIR%%/scores.d/statistics_group.conf
 %%ETCDIR%%/scores.d/subject_group.conf
 %%ETCDIR%%/scores.d/surbl_group.conf
+@sample %%ETCDIR%%/settings.conf.sample
 @sample %%ETCDIR%%/spf_dkim_whitelist.inc.sample
 @sample %%ETCDIR%%/statistic.conf.sample
 @sample %%ETCDIR%%/surbl-whitelist.inc.sample
