@@ -18,6 +18,12 @@ LIB_DEPENDS=	libpcre.so:devel/pcre \
 BUILD_DEPENDS=	ragel:devel/ragel
 RUN_DEPENDS=	ca_root_nss>=3.*:security/ca_root_nss
 
+USES=		cmake:outsource pkgconfig perl5 \
+		compiler:c11 sqlite ssl
+USE_LDCONFIG=	yes
+USE_PERL5=	build run
+USE_GNOME=	glib20
+
 CONFLICTS_INSTALL=	rspamd
 
 OPTIONS_DEFINE=		GPERF GD CGP TORCH_BLAS
@@ -51,14 +57,6 @@ CMAKE_ARGS+=	-DCONFDIR=${PREFIX}/etc/rspamd \
 		-DNO_SHARED=ON \
 		-DDEBUG=ON \
 		-DGIT_ID=${GH_TAGNAME}
-
-USES=		cmake:outsource pkgconfig perl5 \
-		compiler:c11 sqlite ssl
-USE_LDCONFIG=	yes
-USE_PERL5=	build run
-
-USE_GNOME=	glib20
-
 USE_GITHUB=	yes
 GH_ACCOUNT=	vstakhov
 GH_TAGNAME=	571ce4f
