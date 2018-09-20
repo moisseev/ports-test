@@ -176,6 +176,7 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/lib/rspamadm/mime.lua
 %%DATADIR%%/lib/rspamadm/rescore.lua
 %%DATADIR%%/lib/rspamadm/stat_convert.lua
+%%DATADIR%%/lib/tableshape.lua
 %%TORCH%%%%DATADIR%%/lib/decisiontree/CartNode.lua
 %%TORCH%%%%DATADIR%%/lib/decisiontree/CartTrainer.lua
 %%TORCH%%%%DATADIR%%/lib/decisiontree/CartTree.lua
