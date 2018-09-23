@@ -1,7 +1,7 @@
 # $FreeBSD: head/mail/rspamd-devel/Makefile 480264 2018-09-21 12:20:22Z vsevolod $
 
 PORTNAME=	rspamd
-PORTVERSION=	1.8.0.a1.20180921
+PORTVERSION=	1.8.0.a1.20180923
 CATEGORIES=	mail
 PKGNAMESUFFIX=	-devel
 
@@ -9,7 +9,7 @@ MAINTAINER=	vsevolod@FreeBSD.org
 COMMENT=	Fast spam filtering system dev version
 
 LICENSE=	APACHE20
-LICENSE_FILE=	${WRKSRC}/LICENSE
+LICENSE_FILE=	${WRKSRC}/LICENSE.md
 
 LIB_DEPENDS=	libpcre.so:devel/pcre \
 		libevent.so:devel/libevent \
@@ -59,7 +59,7 @@ CMAKE_ARGS+=	-DCONFDIR=${PREFIX}/etc/rspamd \
 		-DGIT_ID=${GH_TAGNAME}
 USE_GITHUB=	yes
 GH_ACCOUNT=	vstakhov
-GH_TAGNAME=	5fc95db
+GH_TAGNAME=	69e72be
 
 DEBUG_FLAGS=	-g -O0
 WITH_DEBUG=	yes
