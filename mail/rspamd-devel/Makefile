@@ -18,8 +18,8 @@ LIB_DEPENDS=	libpcre.so:devel/pcre \
 BUILD_DEPENDS=	ragel:devel/ragel
 RUN_DEPENDS=	ca_root_nss>=3.*:security/ca_root_nss
 
-USES=		cmake:outsource pkgconfig perl5 \
-		compiler:c11 sqlite ssl
+USES=		cmake:outsource compiler:c11 gnome perl5 pkgconfig \
+		sqlite ssl
 USE_LDCONFIG=	yes
 USE_PERL5=	build run
 USE_GNOME=	glib20
