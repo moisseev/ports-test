@@ -434,6 +434,7 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/lua/asn.lua
 %%DATADIR%%/lua/bayes_expiry.lua
 %%DATADIR%%/lua/clickhouse.lua
+%%DATADIR%%/lua/clustering.lua
 %%DATADIR%%/lua/dcc.lua
 %%DATADIR%%/lua/dkim_signing.lua
 %%DATADIR%%/lua/dmarc.lua
