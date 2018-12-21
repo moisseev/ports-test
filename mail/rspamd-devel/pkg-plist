@@ -161,6 +161,8 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/lib/lua_meta.lua
 %%DATADIR%%/lib/lua_nn.lua
 %%DATADIR%%/lib/lua_redis.lua
+%%DATADIR%%/lib/lua_scanners/init.lua
+%%DATADIR%%/lib/lua_scanners/lua_antivirus.lua
 %%DATADIR%%/lib/lua_selectors.lua
 %%DATADIR%%/lib/lua_squeeze_rules.lua
 %%DATADIR%%/lib/lua_stat.lua
