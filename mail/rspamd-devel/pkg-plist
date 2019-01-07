@@ -163,6 +163,7 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/lualib/lua_redis.lua
 %%DATADIR%%/lualib/lua_scanners/clamav.lua
 %%DATADIR%%/lualib/lua_scanners/common.lua
+%%DATADIR%%/lualib/lua_scanners/dcc.lua
 %%DATADIR%%/lualib/lua_scanners/fprot.lua
 %%DATADIR%%/lualib/lua_scanners/init.lua
 %%DATADIR%%/lualib/lua_scanners/kaspersky_av.lua
@@ -451,6 +452,7 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/plugins/dynamic_conf.lua
 %%DATADIR%%/plugins/elastic.lua
 %%DATADIR%%/plugins/emails.lua
+%%DATADIR%%/plugins/external_services.lua
 %%DATADIR%%/plugins/force_actions.lua
 %%DATADIR%%/plugins/forged_recipients.lua
 %%DATADIR%%/plugins/fuzzy_collect.lua
