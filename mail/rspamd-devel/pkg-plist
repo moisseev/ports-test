@@ -31,6 +31,7 @@ etc/newsyslog.conf.d/rspamd.newsyslog.conf
 %%ETCDIR%%/modules.d/dmarc.conf
 %%ETCDIR%%/modules.d/elastic.conf
 %%ETCDIR%%/modules.d/emails.conf
+%%ETCDIR%%/modules.d/external_services.conf
 %%ETCDIR%%/modules.d/force_actions.conf
 %%ETCDIR%%/modules.d/forged_recipients.conf
 %%ETCDIR%%/modules.d/fuzzy_check.conf
@@ -165,8 +166,10 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/lualib/lua_scanners/common.lua
 %%DATADIR%%/lualib/lua_scanners/dcc.lua
 %%DATADIR%%/lualib/lua_scanners/fprot.lua
+%%DATADIR%%/lualib/lua_scanners/icap.lua
 %%DATADIR%%/lualib/lua_scanners/init.lua
 %%DATADIR%%/lualib/lua_scanners/kaspersky_av.lua
+%%DATADIR%%/lualib/lua_scanners/oletools.lua
 %%DATADIR%%/lualib/lua_scanners/savapi.lua
 %%DATADIR%%/lualib/lua_scanners/sophos.lua
 %%DATADIR%%/lualib/lua_selectors.lua
