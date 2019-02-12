@@ -157,6 +157,9 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/lualib/lua_cfg_transform.lua
 %%DATADIR%%/lualib/lua_clickhouse.lua
 %%DATADIR%%/lualib/lua_dkim_tools.lua
+%%DATADIR%%/lualib/lua_ffi/common.lua
+%%DATADIR%%/lualib/lua_ffi/dkim.lua
+%%DATADIR%%/lualib/lua_ffi/init.lua
 %%DATADIR%%/lualib/lua_fuzzy.lua
 %%DATADIR%%/lualib/lua_maps.lua
 %%DATADIR%%/lualib/lua_meta.lua
