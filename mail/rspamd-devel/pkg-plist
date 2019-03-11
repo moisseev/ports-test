@@ -185,6 +185,7 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/lualib/lua_util.lua
 %%DATADIR%%/lualib/plugins_stats.lua
 %%DATADIR%%/lualib/rescore_utility.lua
+%%DATADIR%%/lualib/rspamadm/configgraph.lua
 %%DATADIR%%/lualib/rspamadm/confighelp.lua
 %%DATADIR%%/lualib/rspamadm/configwizard.lua
 %%DATADIR%%/lualib/rspamadm/cookie.lua
