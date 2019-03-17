@@ -1,4 +1,4 @@
-# $FreeBSD: head/mail/rspamd-devel/Makefile 480264 2018-09-21 12:20:22Z vsevolod $
+# $FreeBSD: head/mail/rspamd-devel/Makefile 496032 2019-03-17 08:45:04Z vsevolod $
 
 PORTNAME=	rspamd
 PORTVERSION=	1.9.1.a1.20190316
