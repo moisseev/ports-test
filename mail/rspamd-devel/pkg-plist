@@ -203,6 +203,7 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/lualib/rspamadm/rescore.lua
 %%DATADIR%%/lualib/rspamadm/stat_convert.lua
 %%DATADIR%%/lualib/rspamadm/template.lua
+%%DATADIR%%/lualib/rspamadm/vault.lua
 %%DATADIR%%/lualib/tableshape.lua
 %%TORCH%%%%DATADIR%%/lualib/decisiontree/CartNode.lua
 %%TORCH%%%%DATADIR%%/lualib/decisiontree/CartTrainer.lua
