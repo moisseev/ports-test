@@ -1,3 +1,3 @@
-TIMESTAMP = 1557384167
-SHA256 (rspamd-rspamd-1.9.3.a1.20190509-8d2e971_GH0.tar.gz) = 0697f7c14368f2ea6f4eca3c520b901500842caa1dbab2fc3577b3b91f2a1ef2
-SIZE (rspamd-rspamd-1.9.3.a1.20190509-8d2e971_GH0.tar.gz) = 4473239
+TIMESTAMP = 1557473844
+SHA256 (rspamd-rspamd-1.9.3.a1.20190510-baea32d_GH0.tar.gz) = 65bd595799dd1c9bdfbc637a8080225c2734c5d07ab772490aaaca2113b7f239
+SIZE (rspamd-rspamd-1.9.3.a1.20190510-baea32d_GH0.tar.gz) = 4473127
