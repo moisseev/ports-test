@@ -1,7 +1,7 @@
 # $FreeBSD: head/mail/rspamd-devel/Makefile 496032 2019-03-17 08:45:04Z vsevolod $
 
 PORTNAME=	rspamd
-PORTVERSION=	1.9.4.a1.20190516
+PORTVERSION=	2.0.a1.20190519
 CATEGORIES=	mail
 PKGNAMESUFFIX=	-devel
 
@@ -48,7 +48,7 @@ TORCH_BLAS_IMPLIES=	TORCH
 
 SUB_FILES=	pkg-message rspamd.newsyslog.conf.sample
 PLIST_SUB+=	ETCDIR=etc/rspamd \
-		RSPAMDVERSION=${PORTVERSION:C/^([^.]+\.[^.]+\.[^.]+).*/\1/}
+		RSPAMDVERSION=${PORTVERSION:C/^([^.]+\.[^.]+).*/\1/}
 CMAKE_ARGS+=	-DCONFDIR=${PREFIX}/etc/rspamd \
 		-DLOGDIR=/var/log/rspamd \
 		-DDBDIR=/var/db/rspamd \
@@ -61,7 +61,7 @@ CMAKE_ARGS+=	-DCONFDIR=${PREFIX}/etc/rspamd \
 		-DDEBUG=ON \
 		-DGIT_ID=${GH_TAGNAME}
 USE_GITHUB=	yes
-GH_TAGNAME=	443df6f
+GH_TAGNAME=	31a1224
 
 DEBUG_FLAGS=	-g -O0
 WITH_DEBUG=	yes
