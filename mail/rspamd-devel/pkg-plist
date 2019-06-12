@@ -183,8 +183,8 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/lualib/lua_scanners/spamassassin.lua
 %%DATADIR%%/lualib/lua_scanners/vadesecure.lua
 %%DATADIR%%/lualib/lua_selectors.lua
+%%DATADIR%%/lualib/lua_settings.lua
 %%DATADIR%%/lualib/lua_smtp.lua
-%%DATADIR%%/lualib/lua_squeeze_rules.lua
 %%DATADIR%%/lualib/lua_stat.lua
 %%DATADIR%%/lualib/lua_tcp_sync.lua
 %%DATADIR%%/lualib/lua_util.lua
