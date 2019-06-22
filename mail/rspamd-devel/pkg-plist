@@ -504,6 +504,7 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/plugins/url_reputation.lua
 %%DATADIR%%/plugins/url_tags.lua
 %%DATADIR%%/plugins/whitelist.lua
+%%DATADIR%%/rules/bitcoin.lua
 %%DATADIR%%/rules/forwarding.lua
 %%DATADIR%%/rules/headers_checks.lua
 %%DATADIR%%/rules/html.lua
