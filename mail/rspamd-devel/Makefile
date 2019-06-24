@@ -1,7 +1,7 @@
 # $FreeBSD: head/mail/rspamd-devel/Makefile 496032 2019-03-17 08:45:04Z vsevolod $
 
 PORTNAME=	rspamd
-PORTVERSION=	2.0.a1.20190622
+PORTVERSION=	2.0.a1.20190623
 CATEGORIES=	mail
 PKGNAMESUFFIX=	-devel
 
@@ -12,7 +12,6 @@ LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE.md
 
 LIB_DEPENDS=	libpcre.so:devel/pcre \
-		libevent.so:devel/libevent \
 		libluajit-5.1.so:lang/luajit \
 		libicui18n.so:devel/icu
 BUILD_DEPENDS=	ragel:devel/ragel
@@ -29,19 +28,17 @@ CONFLICTS_INSTALL=	rspamd
 USERS=		rspamd
 GROUPS=		rspamd
 
-OPTIONS_DEFINE=		GPERF GD CGP TORCH_BLAS
+OPTIONS_DEFINE=		GPERF CGP TORCH_BLAS
 OPTIONS_DEFINE_amd64=	HYPERSCAN
 OPTIONS_DEFAULT_amd64=	TORCH
 OPTIONS_SUB=	yes
 
 OPTIONS_RADIO=	NEURAL_NETWORK
-OPTIONS_RADIO_NEURAL_NETWORK=	FANN TORCH
+OPTIONS_RADIO_NEURAL_NETWORK=	TORCH
 
 CGP_DESC=		Install Communigate Pro(tm) helper
-GD_DESC=		Enable libgd support for images fuzzy hashes
 GPERF_DESC=		Google perf-tools profiling
 HYPERSCAN_DESC=		Use hyperscan optimizations (amd64 only)
-FANN_DESC=		Use Fast Artificial Neural Network Library (FANN)
 TORCH_DESC=		Machine learning support using torch
 TORCH_BLAS_DESC=	Build torch with OpenBLAS
 TORCH_BLAS_IMPLIES=	TORCH
@@ -57,28 +54,21 @@ CMAKE_ARGS+=	-DCONFDIR=${PREFIX}/etc/rspamd \
 		-DCMAKE_INSTALL_PREFIX=${PREFIX} \
 		-DBUILD_PORT=yes \
 		-DLIBDIR=${PREFIX}/lib/rspamd \
-		-DNO_SHARED=ON \
 		-DDEBUG=ON \
 		-DGIT_ID=${GH_TAGNAME}
 USE_GITHUB=	yes
-GH_TAGNAME=	57c2106
+GH_TAGNAME=	67d4f2c
 
 DEBUG_FLAGS=	-g -O0
 WITH_DEBUG=	yes
 
 USE_RC_SUBR=	rspamd
 
-GD_CMAKE_ON=	-DENABLE_GD=ON
-GD_LIB_DEPENDS=	libgd.so:graphics/gd
-
 GPERF_CMAKE_ON=	-DENABLE_GPERF_TOOLS=ON
 GPERF_LIB_DEPENDS=	libprofiler.so:devel/google-perftools
 
 HYPERSCAN_CMAKE_ON=	-DENABLE_HYPERSCAN=ON
 HYPERSCAN_LIB_DEPENDS=	libhs.so:devel/hyperscan
-
-FANN_CMAKE_ON=	-DENABLE_FANN=ON
-FANN_LIB_DEPENDS=libfann.so:math/fann
 
 TORCH_CMAKE_ON=	-DENABLE_TORCH=ON
 TORCH_CMAKE_OFF=-DENABLE_TORCH=OFF

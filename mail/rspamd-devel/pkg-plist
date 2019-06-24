@@ -91,6 +91,7 @@ etc/newsyslog.conf.d/rspamd.newsyslog.conf
 @sample %%ETCDIR%%/worker-normal.inc.sample
 @sample %%ETCDIR%%/worker-proxy.inc.sample
 lib/rspamd/librspamd-actrie.so
+lib/rspamd/librspamd-ev.so
 lib/rspamd/librspamd-server.so
 %%TORCH%%lib/rspamd/libTH.so
 %%TORCH%%lib/rspamd/libTHNN.so
