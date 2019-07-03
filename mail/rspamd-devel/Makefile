@@ -1,7 +1,7 @@
 # $FreeBSD: head/mail/rspamd-devel/Makefile 496032 2019-03-17 08:45:04Z vsevolod $
 
 PORTNAME=	rspamd
-PORTVERSION=	2.0.a1.20190701
+PORTVERSION=	2.0.a1.20190703
 CATEGORIES=	mail
 PKGNAMESUFFIX=	-devel
 
@@ -28,20 +28,13 @@ CONFLICTS_INSTALL=	rspamd
 USERS=		rspamd
 GROUPS=		rspamd
 
-OPTIONS_DEFINE=		GPERF CGP TORCH_BLAS
+OPTIONS_DEFINE=		CGP GPERF
 OPTIONS_DEFINE_amd64=	HYPERSCAN
-OPTIONS_DEFAULT_amd64=	TORCH
 OPTIONS_SUB=	yes
-
-OPTIONS_RADIO=	NEURAL_NETWORK
-OPTIONS_RADIO_NEURAL_NETWORK=	TORCH
 
 CGP_DESC=		Install Communigate Pro(tm) helper
 GPERF_DESC=		Google perf-tools profiling
 HYPERSCAN_DESC=		Use hyperscan optimizations (amd64 only)
-TORCH_DESC=		Machine learning support using torch
-TORCH_BLAS_DESC=	Build torch with OpenBLAS
-TORCH_BLAS_IMPLIES=	TORCH
 
 SUB_FILES=	pkg-message rspamd.newsyslog.conf.sample
 PLIST_SUB+=	ETCDIR=etc/rspamd \
@@ -57,7 +50,7 @@ CMAKE_ARGS+=	-DCONFDIR=${PREFIX}/etc/rspamd \
 		-DDEBUG=ON \
 		-DGIT_ID=${GH_TAGNAME}
 USE_GITHUB=	yes
-GH_TAGNAME=	083e6ac
+GH_TAGNAME=	242269c
 
 DEBUG_FLAGS=	-g -O0
 WITH_DEBUG=	yes
@@ -70,12 +63,6 @@ GPERF_LIB_DEPENDS=	libprofiler.so:devel/google-perftools
 HYPERSCAN_CMAKE_ON=	-DENABLE_HYPERSCAN=ON
 HYPERSCAN_LIB_DEPENDS=	libhs.so:devel/hyperscan
 
-TORCH_CMAKE_ON=	-DENABLE_TORCH=ON
-TORCH_CMAKE_OFF=-DENABLE_TORCH=OFF
-
-TORCH_BLAS_USES=	blaslapack:openblas
-TORCH_BLAS_CMAKE_ON=	-DWITH_BLAS=open
-
 CGP_RUN_DEPENDS+=	\
 	p5-AnyEvent-HTTP>=0:www/p5-AnyEvent-HTTP \
 	p5-AnyEvent>=0:devel/p5-AnyEvent \
@@ -83,10 +70,6 @@ CGP_RUN_DEPENDS+=	\
 	p5-JSON-XS>=0:converters/p5-JSON-XS
 
 .include <bsd.port.options.mk>
-
-.if ${PORT_OPTIONS:MTORCH_BLAS}
-USE_GCC=	yes
-.endif
 
 post-install:
 	@${MKDIR} \
