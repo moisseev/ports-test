@@ -1,7 +1,7 @@
 # $FreeBSD: head/mail/rspamd-devel/Makefile 496032 2019-03-17 08:45:04Z vsevolod $
 
 PORTNAME=	rspamd
-PORTVERSION=	2.0.a1.20190708
+PORTVERSION=	2.0.a1.20190709
 CATEGORIES=	mail
 PKGNAMESUFFIX=	-devel
 
@@ -13,7 +13,8 @@ LICENSE_FILE=	${WRKSRC}/LICENSE.md
 
 LIB_DEPENDS=	libpcre.so:devel/pcre \
 		libluajit-5.1.so:lang/luajit \
-		libicui18n.so:devel/icu
+		libicui18n.so:devel/icu \
+		libsodium.so:security/libsodium
 BUILD_DEPENDS=	ragel:devel/ragel
 RUN_DEPENDS=	ca_root_nss>=3.*:security/ca_root_nss
 
@@ -50,7 +51,7 @@ CMAKE_ARGS+=	-DCONFDIR=${PREFIX}/etc/rspamd \
 		-DDEBUG=ON \
 		-DGIT_ID=${GH_TAGNAME}
 USE_GITHUB=	yes
-GH_TAGNAME=	3d8f5c5
+GH_TAGNAME=	37bc7ff
 
 DEBUG_FLAGS=	-g -O0
 WITH_DEBUG=	yes
