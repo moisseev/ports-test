@@ -152,6 +152,7 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/lualib/global_functions.lua
 %%DATADIR%%/lualib/lpegre.lua
 %%DATADIR%%/lualib/lua_auth_results.lua
+%%DATADIR%%/lualib/lua_bayes_learn.lua
 %%DATADIR%%/lualib/lua_cfg_transform.lua
 %%DATADIR%%/lualib/lua_clickhouse.lua
 %%DATADIR%%/lualib/lua_dkim_tools.lua
@@ -258,7 +259,6 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/rules/regexp/headers.lua
 %%DATADIR%%/rules/regexp/misc.lua
 %%DATADIR%%/rules/regexp/upstream_spam_filters.lua
-%%DATADIR%%/rules/rspamd.classifiers.lua
 %%DATADIR%%/rules/rspamd.lua
 %%DATADIR%%/rules/subject_checks.lua
 %%DATADIR%%/www/README.md
