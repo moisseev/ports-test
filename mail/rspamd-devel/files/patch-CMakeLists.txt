@@ -1,6 +1,6 @@
---- CMakeLists.txt.orig	2018-05-18 14:14:33 UTC
+--- CMakeLists.txt.orig	2019-08-16 17:34:47 UTC
 +++ CMakeLists.txt
-@@ -1309,6 +1309,28 @@ ENDFOREACH(CONF_FILE)
+@@ -1235,6 +1235,27 @@ ENDFOREACH(CONF_FILE)
  SET(MAIN_CONF "conf/rspamd.conf")
  IF(BUILD_PORT)
  	INSTALL_IF_NOT_EXISTS(${MAIN_CONF} ${CONFDIR} "rspamd.conf" ".sample")
@@ -14,7 +14,6 @@
 +	INSTALL_IF_NOT_EXISTS("conf/worker-fuzzy.inc" ${CONFDIR} "worker-fuzzy.inc" ".sample")
 +	INSTALL_IF_NOT_EXISTS("conf/worker-normal.inc" ${CONFDIR} "worker-normal.inc" ".sample")
 +	INSTALL_IF_NOT_EXISTS("conf/worker-proxy.inc" ${CONFDIR} "worker-proxy.inc" ".sample")
-+	INSTALL_IF_NOT_EXISTS("conf/2tld.inc" ${CONFDIR} "2tld.inc" ".sample")
 +	INSTALL_IF_NOT_EXISTS("conf/mime_types.inc" ${CONFDIR} "mime_types.inc" ".sample")
 +	INSTALL_IF_NOT_EXISTS("conf/composites.conf" ${CONFDIR} "composites.conf" ".sample")
 +	INSTALL_IF_NOT_EXISTS("conf/maillist.inc" ${CONFDIR} "maillist.inc" ".sample")

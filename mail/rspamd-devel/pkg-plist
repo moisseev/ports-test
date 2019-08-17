@@ -7,7 +7,6 @@ bin/rspamd-%%RSPAMDVERSION%%
 bin/rspamd_stats
 %%CGP%%bin/rspamd-cgp-helper
 etc/newsyslog.conf.d/rspamd.newsyslog.conf
-@sample %%ETCDIR%%/2tld.inc.sample
 @sample %%ETCDIR%%/actions.conf.sample
 @sample %%ETCDIR%%/cgp.inc.sample
 @sample %%ETCDIR%%/common.conf.sample
