@@ -248,8 +248,6 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/plugins/spamtrap.lua
 %%DATADIR%%/plugins/trie.lua
 %%DATADIR%%/plugins/url_redirector.lua
-%%DATADIR%%/plugins/url_reputation.lua
-%%DATADIR%%/plugins/url_tags.lua
 %%DATADIR%%/plugins/whitelist.lua
 %%DATADIR%%/rules/bitcoin.lua
 %%DATADIR%%/rules/forwarding.lua
