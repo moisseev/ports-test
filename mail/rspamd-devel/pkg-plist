@@ -61,8 +61,6 @@ etc/newsyslog.conf.d/rspamd.newsyslog.conf
 %%ETCDIR%%/modules.d/surbl.conf
 %%ETCDIR%%/modules.d/trie.conf
 %%ETCDIR%%/modules.d/url_redirector.conf
-%%ETCDIR%%/modules.d/url_reputation.conf
-%%ETCDIR%%/modules.d/url_tags.conf
 %%ETCDIR%%/modules.d/whitelist.conf
 @sample %%ETCDIR%%/options.inc.sample
 %%ETCDIR%%/redirectors.inc
