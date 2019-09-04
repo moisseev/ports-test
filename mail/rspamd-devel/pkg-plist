@@ -89,6 +89,7 @@ etc/newsyslog.conf.d/rspamd.newsyslog.conf
 lib/rspamd/librspamd-actrie.so
 lib/rspamd/librspamd-ev.so
 lib/rspamd/librspamd-kann.so
+lib/rspamd/librspamd-replxx.so
 lib/rspamd/librspamd-server.so
 man/man1/rspamadm.1.gz
 man/man1/rspamc.1.gz
