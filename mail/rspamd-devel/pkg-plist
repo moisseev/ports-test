@@ -161,6 +161,7 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/lualib/lua_fuzzy.lua
 %%DATADIR%%/lualib/lua_ical.lua
 %%DATADIR%%/lualib/lua_lexer.lua
+%%DATADIR%%/lualib/lua_magic/heuristics.lua
 %%DATADIR%%/lualib/lua_magic/init.lua
 %%DATADIR%%/lualib/lua_magic/patterns.lua
 %%DATADIR%%/lualib/lua_magic/types.lua
