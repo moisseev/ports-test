@@ -47,6 +47,7 @@ etc/newsyslog.conf.d/rspamd.newsyslog.conf
 %%ETCDIR%%/modules.d/mx_check.conf
 %%ETCDIR%%/modules.d/neural.conf
 %%ETCDIR%%/modules.d/once_received.conf
+%%ETCDIR%%/modules.d/p0f.conf
 %%ETCDIR%%/modules.d/phishing.conf
 %%ETCDIR%%/modules.d/ratelimit.conf
 %%ETCDIR%%/modules.d/rbl.conf
@@ -178,6 +179,7 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/lualib/lua_scanners/init.lua
 %%DATADIR%%/lualib/lua_scanners/kaspersky_av.lua
 %%DATADIR%%/lualib/lua_scanners/oletools.lua
+%%DATADIR%%/lualib/lua_scanners/p0f.lua
 %%DATADIR%%/lualib/lua_scanners/savapi.lua
 %%DATADIR%%/lualib/lua_scanners/sophos.lua
 %%DATADIR%%/lualib/lua_scanners/spamassassin.lua
@@ -241,6 +243,7 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/plugins/mx_check.lua
 %%DATADIR%%/plugins/neural.lua
 %%DATADIR%%/plugins/once_received.lua
+%%DATADIR%%/plugins/p0f.lua
 %%DATADIR%%/plugins/phishing.lua
 %%DATADIR%%/plugins/ratelimit.lua
 %%DATADIR%%/plugins/rbl.lua
