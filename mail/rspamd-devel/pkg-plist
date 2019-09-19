@@ -11,13 +11,16 @@ etc/newsyslog.conf.d/rspamd.newsyslog.conf
 @sample %%ETCDIR%%/cgp.inc.sample
 @sample %%ETCDIR%%/common.conf.sample
 @sample %%ETCDIR%%/composites.conf.sample
-@sample %%ETCDIR%%/dmarc_whitelist.inc.sample
 @sample %%ETCDIR%%/groups.conf.sample
 @sample %%ETCDIR%%/logging.inc.sample
-@sample %%ETCDIR%%/maillist.inc.sample
+%%ETCDIR%%/maps.d/dmarc_whitelist.inc
+%%ETCDIR%%/maps.d/maillist.inc
+%%ETCDIR%%/maps.d/mid.inc
+%%ETCDIR%%/maps.d/mime_types.inc
+%%ETCDIR%%/maps.d/redirectors.inc
+%%ETCDIR%%/maps.d/spf_dkim_whitelist.inc
+%%ETCDIR%%/maps.d/surbl-whitelist.inc
 @sample %%ETCDIR%%/metrics.conf.sample
-@sample %%ETCDIR%%/mid.inc.sample
-@sample %%ETCDIR%%/mime_types.inc.sample
 @sample %%ETCDIR%%/modules.conf.sample
 %%ETCDIR%%/modules.d/antivirus.conf
 %%ETCDIR%%/modules.d/arc.conf
@@ -64,7 +67,6 @@ etc/newsyslog.conf.d/rspamd.newsyslog.conf
 %%ETCDIR%%/modules.d/url_redirector.conf
 %%ETCDIR%%/modules.d/whitelist.conf
 @sample %%ETCDIR%%/options.inc.sample
-%%ETCDIR%%/redirectors.inc
 @sample %%ETCDIR%%/rspamd.conf.sample
 @sample %%ETCDIR%%/rspamd.newsyslog.conf.sample
 %%ETCDIR%%/scores.d/fuzzy_group.conf
@@ -80,9 +82,7 @@ etc/newsyslog.conf.d/rspamd.newsyslog.conf
 %%ETCDIR%%/scores.d/surbl_group.conf
 %%ETCDIR%%/scores.d/whitelist_group.conf
 @sample %%ETCDIR%%/settings.conf.sample
-@sample %%ETCDIR%%/spf_dkim_whitelist.inc.sample
 @sample %%ETCDIR%%/statistic.conf.sample
-@sample %%ETCDIR%%/surbl-whitelist.inc.sample
 @sample %%ETCDIR%%/worker-controller.inc.sample
 @sample %%ETCDIR%%/worker-fuzzy.inc.sample
 @sample %%ETCDIR%%/worker-normal.inc.sample
