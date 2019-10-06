@@ -178,6 +178,7 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/lualib/lua_scanners/icap.lua
 %%DATADIR%%/lualib/lua_scanners/init.lua
 %%DATADIR%%/lualib/lua_scanners/kaspersky_av.lua
+%%DATADIR%%/lualib/lua_scanners/kaspersky_se.lua
 %%DATADIR%%/lualib/lua_scanners/oletools.lua
 %%DATADIR%%/lualib/lua_scanners/p0f.lua
 %%DATADIR%%/lualib/lua_scanners/savapi.lua
