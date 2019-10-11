@@ -77,9 +77,9 @@ post-install:
 		${STAGEDIR}/var/log/rspamd \
 		${STAGEDIR}/var/db/rspamd \
 		${STAGEDIR}/var/run/rspamd
+	${RM} ${STAGEDIR}/${ETCDIR}/rspamd.conf.sample
 	# Linux specific
 	${RM} ${STAGEDIR}/${ETCDIR}/rspamd.systemd.conf
-	# No need, since rspamd.conf.sample is a same
 	${RM} ${STAGEDIR}/${ETCDIR}/rspamd.sysvinit.conf
 	# No examples installed by the port
 	${RMDIR} ${STAGEDIR}/${EXAMPLESDIR}
