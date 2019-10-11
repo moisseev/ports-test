@@ -181,6 +181,7 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/lualib/lua_scanners/kaspersky_se.lua
 %%DATADIR%%/lualib/lua_scanners/oletools.lua
 %%DATADIR%%/lualib/lua_scanners/p0f.lua
+%%DATADIR%%/lualib/lua_scanners/razor.lua
 %%DATADIR%%/lualib/lua_scanners/savapi.lua
 %%DATADIR%%/lualib/lua_scanners/sophos.lua
 %%DATADIR%%/lualib/lua_scanners/spamassassin.lua
