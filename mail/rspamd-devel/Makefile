@@ -52,20 +52,21 @@ CMAKE_ARGS+=	-DCONFDIR=${PREFIX}/etc/rspamd \
 		-DDEBUG=ON \
 		-DGIT_ID=${GH_TAGNAME}
 USE_GITHUB=	yes
-GH_TAGNAME=	bd2ed02
+GH_TAGNAME=	5172bac
 
 DEBUG_FLAGS=	-g -O0
 WITH_DEBUG=	yes
 
 USE_RC_SUBR=	rspamd
 
+BLAS_CMAKE_ON=	-DENABLE_BLAS=ON
+BLAS_USES=	blaslapack:openblas
+
 GPERF_CMAKE_ON=	-DENABLE_GPERF_TOOLS=ON
 GPERF_LIB_DEPENDS=	libprofiler.so:devel/google-perftools
 
 HYPERSCAN_CMAKE_ON=	-DENABLE_HYPERSCAN=ON
 HYPERSCAN_LIB_DEPENDS=	libhs.so:devel/hyperscan
-
-BLAS_USES=	blaslapack:openblas
 
 CGP_RUN_DEPENDS+=	\
 	p5-AnyEvent-HTTP>=0:www/p5-AnyEvent-HTTP \
