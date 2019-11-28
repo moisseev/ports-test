@@ -69,6 +69,7 @@ etc/newsyslog.conf.d/rspamd.newsyslog.conf
 %%ETCDIR%%/options.inc
 %%ETCDIR%%/rspamd.conf
 @sample %%ETCDIR%%/rspamd.newsyslog.conf.sample
+%%ETCDIR%%/scores.d/content_group.conf
 %%ETCDIR%%/scores.d/fuzzy_group.conf
 %%ETCDIR%%/scores.d/headers_group.conf
 %%ETCDIR%%/scores.d/hfilter_group.conf
@@ -262,6 +263,7 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/plugins/trie.lua
 %%DATADIR%%/plugins/url_redirector.lua
 %%DATADIR%%/plugins/whitelist.lua
+%%DATADIR%%/rules/content.lua
 %%DATADIR%%/rules/bitcoin.lua
 %%DATADIR%%/rules/forwarding.lua
 %%DATADIR%%/rules/headers_checks.lua
