@@ -260,6 +260,7 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/plugins/settings.lua
 %%DATADIR%%/plugins/spamassassin.lua
 %%DATADIR%%/plugins/spamtrap.lua
+%%DATADIR%%/plugins/spf.lua
 %%DATADIR%%/plugins/trie.lua
 %%DATADIR%%/plugins/url_redirector.lua
 %%DATADIR%%/plugins/whitelist.lua
