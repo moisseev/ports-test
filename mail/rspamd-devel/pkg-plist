@@ -311,8 +311,6 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/www/js/lib/require.min.js
 %%DATADIR%%/www/js/lib/visibility.min.js
 %%DATADIR%%/www/js/main.js
-%%DATADIR%%/www/plugins.txt
-%%DATADIR%%/www/react-index.html
 @owner rspamd
 @group rspamd
 @dir /var/db/rspamd
