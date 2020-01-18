@@ -279,11 +279,14 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/rules/rspamd.lua
 %%DATADIR%%/rules/subject_checks.lua
 %%DATADIR%%/www/README.md
+%%DATADIR%%/www/browserconfig.xml
 %%DATADIR%%/www/css/bootstrap.min.css
 %%DATADIR%%/www/css/d3evolution.css
 %%DATADIR%%/www/css/footable.bootstrap.min.css
 %%DATADIR%%/www/css/nprogress.css
 %%DATADIR%%/www/css/rspamd.css
+%%DATADIR%%/www/favicon-16x16.png
+%%DATADIR%%/www/favicon-32x32.png
 %%DATADIR%%/www/favicon.ico
 %%DATADIR%%/www/fonts/glyphicons-halflings-regular.ttf
 %%DATADIR%%/www/fonts/glyphicons-halflings-regular.woff
@@ -311,6 +314,8 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/www/js/lib/require.min.js
 %%DATADIR%%/www/js/lib/visibility.min.js
 %%DATADIR%%/www/js/main.js
+%%DATADIR%%/www/mstile-150x150.png
+%%DATADIR%%/www/safari-pinned-tab.svg
 @owner rspamd
 @group rspamd
 @dir /var/db/rspamd
