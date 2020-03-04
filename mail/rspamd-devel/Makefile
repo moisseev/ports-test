@@ -1,4 +1,4 @@
-# $FreeBSD: head/mail/rspamd-devel/Makefile 526021 2020-02-13 14:47:41Z vsevolod $
+# $FreeBSD: head/mail/rspamd-devel/Makefile 527673 2020-03-03 12:56:15Z mat $
 
 PORTNAME=	rspamd
 PORTVERSION=	2.5.a1.20200303
@@ -59,7 +59,6 @@ USE_GITHUB=	yes
 GH_TAGNAME=	b82366d
 
 DEBUG_FLAGS=	-g -O0
-WITH_DEBUG=	yes
 
 USE_RC_SUBR=	rspamd
 
