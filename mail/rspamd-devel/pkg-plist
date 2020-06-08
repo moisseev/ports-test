@@ -305,6 +305,7 @@ man/man8/rspamd.8.gz
 %%DATADIR%%/www/js/app/graph.js
 %%DATADIR%%/www/js/app/history.js
 %%DATADIR%%/www/js/app/rspamd.js
+%%DATADIR%%/www/js/app/selectors.js
 %%DATADIR%%/www/js/app/stats.js
 %%DATADIR%%/www/js/app/symbols.js
 %%DATADIR%%/www/js/app/upload.js
