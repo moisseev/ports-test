@@ -1,0 +1,60 @@
+freebsd_instance:
+    image_family: freebsd-12-1
+
+task:
+  name: 12.1
+  configure_freebsd_script:
+    - mkdir -p /usr/local/etc/pkg/repos
+    - |
+      cat >> /usr/local/etc/pkg/repos/FreeBSD.conf <<EOF
+      FreeBSD: {
+        url: "pkg+http://pkg.FreeBSD.org/\${ABI}/latest"
+      }
+      EOF
+    - |
+      cat >> /etc/make.conf <<EOF
+      BATCH=yes
+      DEVELOPER=yes
+      PORTSDIR=/tmp/ports
+      EOF
+
+  install_svn_depends_script: pkg install -y sqlite3
+  install_svn_script: pkg install -y subversion
+  fetch_ports_framework_script:
+    - mkdir /tmp/ports
+    - svn co svn://svn.FreeBSD.org/ports/head /tmp/ports --depth files
+    - cd /tmp/ports
+    # Create dependencies directories for portlint
+    - mkdir -p devel/pcre devel/icu security/libsodium devel/ragel security/ca_root_nss
+    - svn co svn://svn.FreeBSD.org/ports/head/Keywords
+    - svn co svn://svn.FreeBSD.org/ports/head/Mk
+    - svn co svn://svn.FreeBSD.org/ports/head/Templates
+    - svn co svn://svn.FreeBSD.org/ports/head/Tools
+    - PERL5_DEFAULT=`sed -En -e 's/^PERL5_DEFAULT\?=[[:space:]]+(.+)/\1/p' /tmp/ports/Mk/bsd.default-versions.mk`
+    - svn co svn://svn.FreeBSD.org/ports/head/lang/perl${PERL5_DEFAULT} /tmp/ports/lang/perl${PERL5_DEFAULT} --depth empty
+    - cd /tmp/ports/lang/perl${PERL5_DEFAULT}
+    - svn up version.mk
+
+  # portsnap_fetch_script:
+  #  - portsnap --interactive fetch
+  #  - date -r `cut -f 2 -d '|' /var/db/portsnap/tag`
+  # portsnap_extract_script: portsnap extract
+
+  install_portlint_script: pkg install -y portlint
+  portlint_script:
+    - portlint -V || true
+    - cd mail/rspamd-devel && ! portlint -C | egrep -v '^looks fine\.$'
+
+  install_build_depends_script: >
+    pkg install -y
+    ragel cmake ninja pkgconf perl5 pcre icu libsodium hyperscan luajit glib gettext-runtime sqlite3
+
+  build_script: cd mail/rspamd-devel && make stage && make check-orphans && make package
+  install_run_depends_script: pkg install -y ca_root_nss
+  install_script: cd mail/rspamd-devel && make install
+  pkg_version_script: pkg version -vRL=
+  run_script: service rspamd onestart
+
+  pkg_repo_script: pkg repo mail/rspamd-devel/work/pkg
+  pkg_artifacts:
+    path: mail/rspamd-devel/work/pkg/*
